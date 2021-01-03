@@ -1,0 +1,111 @@
+*{
+    margin : 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --padding-m : 15px;
+    --paddding-xs : 5px;
+    --margin-bottom-xs: 20px;
+    --border-radius-s : 12px;
+}
+li{
+    list-style: none;
+}
+.container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+.side-nav-dashboard{
+    width: 25%;
+    height: 100vh;
+    padding: var(--padding-m);
+}
+.side-nav-dashboard h2,.side-nav-dashboard input,.side-nav-dashboard button{
+    margin-bottom: var(--margin-bottom-xs);
+}
+.dashboard-main-section{
+    width: 75%;
+    height: 100vh;
+    padding: var(--padding-m);
+}
+.dashboard-main-section header{
+    display: flex;
+    justify-content: space-between;
+}
+.dashboard-main-section header > div {
+    display: flex;
+}
+table{
+    margin: auto;
+    width: 80%;
+}
+thead tr th{
+    text-align: start;
+    background-color: rgb(241, 241, 241);
+}
+thead tr , tbody tr {
+    height: 55px;
+}
+thead tr th, tbody tr td{
+    padding: var(--paddding-xs);
+}
+.flex-d-column{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.container-inputs input{
+    width: 80%;
+    border-radius: var(--border-radius-s);
+    outline : none;
+    border : 1px solid rgb(207, 207, 207);
+    padding: var(--paddding-xs);
+    height: 35px;
+}
+.container-inputs input::placeholder{
+    color :rgb(153, 153, 153);
+}
+.container-buttons button{
+    display: block;
+    margin: auto;
+    outline: none;
+    width: 80%;
+    background-color: black;
+    border-radius: var(--border-radius-s);
+    color : white;
+    border : none;
+    height: 35px;
+    cursor : pointer;
+}
+
+.card-product-order{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    margin: auto;
+    border: 1px solid rgb(173, 173, 173);
+    border-radius: var(--border-radius-s);
+    padding: var(--paddding-xs);
+    margin-bottom: var(--margin-bottom-xs);
+}
+.card-product-order div{
+}
+.card-product-order div h2 {
+    margin-bottom: 0;
+    font-size: 1rem;
+    font-weight: 600;
+}
+.information-product-order{
+    width: 50%;
+}
+.card-product-order div ul li {
+
+}
+.card-product-order div > button {
+    background-color: red;
+    color : white;
+    width: 60px;
+}

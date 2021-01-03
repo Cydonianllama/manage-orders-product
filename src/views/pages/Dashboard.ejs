@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/styles/dashboard.css">
+</head>
+<body>
+    
+    <main class = "container">
+        <nav class="side-nav-dashboard container-buttons">
+            <h2>ORDER</h2>
+            <div class ="flex-d-column container-inputs">
+                <input id = "input-company-name" type="text" placeholder="company name">
+            </div>
+            <div class ="products-container" id ="products-order-container">
+                <h2>Product in order</h2>
+                
+            </div>
+            <button id ="btn-create-order">Create Order</button>
+            <h2>PRODUCT</h2>
+            <div class = "flex-d-column container-inputs">
+                <input id ="input-name-product"type="text" placeholder="name">
+                <input id ="input-quantity-product"type="text" placeholder="quantity">
+                <input id ="input-type-product"type="text" placeholder="type">
+                <input id ="input-unitary-price-product"type="text" placeholder="unitary price">
+            </div>
+            <button id="btn-create-product">Create Product</button>
+        </nav>
+        <div class="dashboard-main-section">
+            <table id = "table-products">
+                <thead>
+                    <tr>
+                        <th>name</th>
+                        <th>quantity</th>
+                        <th>type</th>
+                        <th>price</th>
+                        <th>Select</th>
+                        <th>product picked</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% result.forEach(function(items){ %>
+                        <%- include('../partials/productRow',{items}); %>
+                    <% }); %>
+                </tbody>
+            </table>
+        
+        </div>
+    </main>
+    
+
+    <script src = "/controllers/dashboardControllers.js"></script>
+
+</body>
+</html>
