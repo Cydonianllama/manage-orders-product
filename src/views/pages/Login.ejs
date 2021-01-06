@@ -4,13 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" href="/styles/login.css">
 </head>
 <body>
     <form method="POST">
-        <input type="text" placeholder = "username" name="username" id = "username-input">
-        <input type="password" placeholder = "password" name="password" id = "password-input">
-        <button id = "submit-login"type="button">Login</button>
+        <input type="text" placeholder = "username" name="username" id = "input-username">
+        <input type="password" placeholder = "password" name="password" id = "input-password">
+        <button id = "btn-login"type="button">Login</button>
     </form>
-    <script src = "/controllers/userActions.js"></script>
+    <div class = "container-information">
+
+    </div>
+    <script src = "/controllers/loginControllers.js"></script>
 </body>
 </html>
