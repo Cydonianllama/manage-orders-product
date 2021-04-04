@@ -4,10 +4,7 @@ let conectionDB = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '',
-    database: 'orderscrud'
-})
-let hola = () => {
+    database: 'basic_orders'
+});
 
-}
-
-module.exports = {conectionDB,hola};
+module.exports = conectionDB;

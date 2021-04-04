@@ -1,31 +1,21 @@
 const express = require('express')
 const router = express.Router()
-const model = require('../models/ordersModel')
 
-router.get('/getAll',(req,res)=>{
-    model.selectAll((error,result,fieldset) => {
-        if (error) res.send({success : false})
-        else{
-            res.send(result)
-        }
-    })
-})
+const orderController = require('../components/orders/OrderController');
 
-router.get('getByCode/:code',(req,res) => {
-    res.send({state : 'not implemented'})
-})
+// additional
+router.post('/items/add',orderController.addItemOrder);
+router.delete('/items/:id',orderController.removeItemOrder)
+router.get('/items/:id',orderController.getItemsOrder)
 
-router.post('/create',(req,res)=>{
-    model.insertOne((error,result,fieldset)=>{
-        if(error) res.send({success : false})
-        else {
-            res.send(result)
-        }
-    })
-})
+router.post('/process/:id',orderController.processOrder)
+router.get('/report/:page',orderController.getOrdersByPage)
 
-router.get('/update',(req,res) => {
-
-})
+//CRUD
+router.get('/',orderController.getOrdersByPage);
+router.get('/:id',orderController.getOrder);
+router.post('/',orderController.createOrder);
+router.put('/:id',orderController.updateOrder);
+router.delete('/:id',orderController.deleteOrder);
 
 module.exports = router

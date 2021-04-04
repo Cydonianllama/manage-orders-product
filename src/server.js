@@ -1,26 +1,23 @@
-const express = require('express')
-const app = express()
-const path = require('path')
-const PORT = process.env.PORT || 5000
+const express = require('express');
+const app = express();
+const path = require('path');
+const methodOverride = require('method-override');
 
-const routesHome = require('./routes/routes.home')
-const apiOrder = require('./api/apiOrder')
-const apiProduct = require('./api/apiProduct')
-const apiUser = require('./api/apiUser')
+const PORT = process.env.PORT || 3000 ;
 
+// middlewares
+app.use( methodOverride('X-HTTP-Method-Override') )
+app.use( express.json() );
+// app.use( express.urlencoded( { extended: false } ) );
+
+// view engine 
 app.set('view engine','ejs')
-app.use('/controllers',express.static(path.resolve('src','client','controllers')))
-app.use('/styles',express.static(path.resolve('src','client','styles')))
 app.set('views', path.resolve('src','views'))
-app.use(express.json())
-app.use(express.urlencoded({extended : false}))
 
-app.use('/',routesHome)
-app.use('/api/order/',apiOrder)
-app.use('/api/product',apiProduct)
-app.use('/api/user',apiUser)
+const router = require('./router/router')
+router(app);
 
-app.listen(PORT,(e) => {
-    if (e) console.log(e)
-    else console.log(`conection in PORT ${PORT}`)
+app.listen(PORT,(err) => {
+    let response = !err ? `conection in PORT ${PORT}` : 'error in connection';
+    console.log(response);
 })
